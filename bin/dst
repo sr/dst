@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+$:.unshift 'lib/', File.dirname(__FILE__) + '/../lib'
+require 'dst'
+
+Dst::Models.establish_connection(:database => File.expand_path('~/.dst.db'))
+Dst::Models.create_tables_if_necessary
+Dst.process_command(ARGV.join(' '))
