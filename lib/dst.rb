@@ -24,14 +24,14 @@ class Dst
     task.context = Context.find_or_create_by_name(options[:context]) if options.has_key?(:context)
     task.project = Project.find_or_create_by_name(options[:project]) if options.has_key?(:project)
     task.save
-    puts "#{task} have been successfuly created"
+    puts "#{task} created."
   end
 
   def toggle_task(task_id)
     task = Task.toggle!(task_id)
-    puts "Ok, task marked as `#{task.status}'"    
+    puts "Ok, task marked as `#{task.status}'."    
   rescue ActiveRecord::RecordNotFound
-    puts "Oops, task ##{task_id} not found"
+    puts "Oops, task ##{task_id} not found."
   end
 
   def list_tasks(options={}, include_completed=false)
