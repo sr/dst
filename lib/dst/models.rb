@@ -10,8 +10,7 @@ class Dst
       end
 
       def establish_connection(options={})
-        options.merge!({:adapter => 'sqlite3', :database => 'dst.db'})
-        ActiveRecord::Base.establish_connection(options) 
+        ActiveRecord::Base.establish_connection({:adapter => 'sqlite3', :database => 'dst.db'}.merge(options))
       end
       
       def create_tables_if_necessary(force=false)
