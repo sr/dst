@@ -23,7 +23,7 @@ class Dst
       belongs_to :project
 
       def self.unfinished(options={})
-        find(:all, {:conditions => ['status = ?', false]}.merge(options))
+        find(:all, {:conditions => 'status = "f"'}.merge(options))
       end
 
       def self.toggle!(task_id)
