@@ -29,7 +29,7 @@ class Dst
 
   def toggle_task(task_id)
     task = Task.toggle!(task_id)
-    puts "Ok, task marked as `#{task.status}'."    
+    puts "Ok, `#{task}' marked as `#{task.status}'."    
   rescue ActiveRecord::RecordNotFound
     puts "Oops, task ##{task_id} not found."
   end
