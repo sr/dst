@@ -98,7 +98,7 @@ describe Dst do
       end
 
       it 'notices that tasks have been successfuly created' do
-        @dst.should_receive(:puts).with(/have been successfuly created$/)
+        @dst.should_receive(:puts).with(/ created.$/)
         @dst.process_command(@command)
       end
     end
@@ -132,7 +132,7 @@ describe Dst do
 
       it 'outputs an error message if task not found' do
         @task_model.should_receive(:toggle!).and_raise(ActiveRecord::RecordNotFound)
-        @dst.should_receive(:puts).with("Oops, task #98 not found")
+        @dst.should_receive(:puts).with("Oops, task #98 not found.")
         @dst.process_command('^98')
       end
     end
