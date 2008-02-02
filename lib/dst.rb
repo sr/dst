@@ -24,7 +24,7 @@ class Dst
     task.context = Context.find_or_create_by_name(options[:context]) if options.has_key?(:context)
     task.project = Project.find_or_create_by_name(options[:project]) if options.has_key?(:project)
     task.save
-    puts "#{task} created."
+    puts "`#{task}' created."
   end
 
   def toggle_task(task_id)
