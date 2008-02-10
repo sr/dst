@@ -1,0 +1,37 @@
+dst is a KISS GTD manager for the command line lovers.
+
+== Licence
+
+dst is copyright 2008 Simon Rozet. It is licensed under the MIT licence.
+See the included LICENSE file for details.
+
+== Install
+
+  sudo gem install ape
+
+== Usage
+
+  % dst @mail john@doe.org about foo
+  1 - `@mail john@doe.org about foo' created.
+  % dst @code :myproj fix bug 123
+  2 - `@code :myproj fix bug 123' created.
+  % dst @code :myproj do foo and bar
+  3 - `@code :myproj do foo and bar' created.
+  % dst
+  1 - @mail john@doe.org about foo
+  2 - @code :myproj fix bug
+  3 - @code :myproj do foo and bar
+  % dst @mail
+  1 - @mail john@doe.org about foo
+  % dst :myproj
+  2 - @code :myproj fix bug
+  3 - @code :myproj do foo and bar
+  % dst ^2
+  Ok, `2 - @code :myproj fix bug' marked as `completed'.
+  % dst
+  1 - @mail john@doe.org about foo
+  3 - @code :myproj do foo and bar
+
+== Contact
+
+Simon Rozet, simon@rozet.name
