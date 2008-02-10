@@ -3,6 +3,8 @@ require 'rubygems'
 require 'spec'
 require 'dst'
 
+module Kernel; def puts(s); end; end
+
 describe Dst do
   before(:each) do
     @dst = Dst.new
