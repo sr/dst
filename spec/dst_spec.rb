@@ -1,4 +1,6 @@
 $:.unshift 'lib/', File.dirname(__FILE__) + '/../lib'
+require 'rubygems'
+require 'spec'
 require 'dst'
 
 describe Dst do
@@ -140,25 +142,25 @@ describe Dst do
 
   describe "when listing tasks: `[<@context> <@project>] [-a]]'" do
     before(:each) do
-      @tasks = mock('tasks', :find_all => [@task], :empty? => false, :map => [@task])
+      @tasks = mock('tasks', :select => [@task], :empty? => false, :map => [@task])
       @task_model.stub!(:unfinished).and_return(@tasks)
     end
 
     it 'finds all unfinished tasks if no filter provided' do
       @task_model.should_receive(:unfinished).and_return(@tasks)
-      @tasks.should_not_receive(:find_all)
+      @tasks.should_not_receive(:select)
       @dst.process_command('')
     end
 
     it 'finds unfinished tasks filtered by context' do
       @task_model.should_receive(:unfinished).and_return(@tasks)
-      @tasks.should_receive(:find_all)
+      @tasks.should_receive(:select)
       @dst.process_command('@context')
     end
 
     it 'finds unfinished tasks filtered by project' do
       @task_model.should_receive(:unfinished).and_return(@tasks)
-      @tasks.should_receive(:find_all)
+      @tasks.should_receive(:select)
       @dst.process_command(':project')
     end
     

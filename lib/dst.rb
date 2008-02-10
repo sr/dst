@@ -39,11 +39,11 @@ class Dst
     tasks = if options.empty?
               Task.unfinished
             elsif context
-              Task.unfinished(:include => [:context, :project]).find_all { |task|
+              Task.unfinished.select { |task|
                 task.context.name == context if task.context
               }
             elsif project
-              Task.unfinished(:include => [:context, :project]).find_all { |task|
+              Task.unfinished.select { |task|
                 task.project.name == project if task.project
               }
             end || []
