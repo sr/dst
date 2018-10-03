@@ -31,7 +31,7 @@ class Dst
     task = Task.toggle!(task_id)
     puts "Ok, `#{task}' marked as `#{task.status}'."    
   rescue ActiveRecord::RecordNotFound
-    puts "Oops, task ##{task_id} not found."
+    puts "Oops, task ##{task_id} not found in the list"
   end
 
   def list_tasks(options={}, include_completed=false)
